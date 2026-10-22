@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Add service name
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="accom-avail" method="post">
+
+<h1 class="govuk-heading-l">Does the community group have funding in place to support the refugee or family?</h1>
+
+{{ govukRadios({
+  name: "funds",
+  fieldset: {
+    legend: {
+      text: "",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "funding~funds-details",
+      text: "Yes, funding is in place"
+    },
+    {
+      value: "no-funding~funds-plan",
+      text: "No, but there is a funding plan"
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

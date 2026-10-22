@@ -1,0 +1,440 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+
+{% endset %}
+
+{% block content %}
+
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+  <link rel="stylesheet" href="/public/javascripts/accessible-autocomplete.min.css" />
+  <link rel="stylesheet" href="/public/css/accessible-autocomplete.min.css"/>
+
+<style>
+  .autocomplete__option,
+  .autocomplete__input {
+    font-family: "nta", Arial, sans-serif;
+  }
+</style>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="chks" method="post">
+
+<h1 class="govuk-heading-l">What is the group member's nationality? (2 of 5)</h1>
+    <div id="issue" class="autocomplete-wrapper" name="keyCtcNat"></div>
+      <div id="js-anotherCurrentCountry"></div>
+                      <br>
+                      <br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+  <script type="text/javascript">
+  function suggest(query, syncResults) {
+    var results = [
+  'Zimbabwe',
+'Zambia',
+'Yemen',
+'Western Sahara',
+'Wallis and Futuna Islands',
+'Virgin Islands, U.S.',
+'Virgin Islands, British',
+'Vietnam',
+'Venezuela',
+'Vanuatu',
+'Uzbekistan',
+'Uruguay',
+'United States of America',
+'United States Minor Outlying Islands',
+'United Nations',
+'United Nations Agency',
+'United Kingdom',
+'United Arab Emirates',
+'Ukraine',
+'Uganda',
+'Tuvalu',
+'Turks and Caicos Islands',
+'Turkmenistan',
+'Turkish controlled area of Cyprus',
+'Turkey',
+'Tunisia',
+'Trinidad and Tobago',
+'Tonga',
+'Tokelau',
+'Togo',
+'Timor-Leste',
+'Thailand',
+'Tanzania',
+'Tajikistan',
+'Taiwan',
+'Syria',
+'Switzerland',
+'Sweden',
+'Swaziland',
+'Svalbard and Jan Mayen Islands',
+'Suriname',
+'Sudan',
+'Stateless, under the 1954 Convention',
+'Sri Lanka',
+'Spain',
+'South Sudan',
+'South Georgia and the South Sandwich Islands',
+'South Africa',
+'Somalia',
+'Solomon Islands',
+'Slovenia',
+'Slovakia',
+'Sint Maarten (Dutch part)',
+'Singapore',
+'Sierra Leone',
+'Seychelles',
+'Serbia',
+'Senegal',
+'Saudi Arabia',
+'Sao Tome and Principe',
+'San Marino',
+'Samoa',
+'Saint Vincent and the Grenadines',
+'Saint Pierre and Miquelon',
+'Saint Martin',
+'Saint Lucia',
+'Saint Kitts and Nevis',
+'Saint Helena, Ascension and Tristan da Cunha',
+'Saint Barthelemy',
+'Rwanda',
+'Russian Federation',
+'Romania',
+'Reunion',
+'Refugee, under Article 1 of the 1951 Convention',
+'Refugee, other than Article 1',
+'Qatar',
+'Puerto Rico',
+'Portugal',
+'Poland',
+'Pitcairn',
+'Philippines',
+'Peru',
+'Paraguay',
+'Papua New Guinea',
+'Panama',
+'Palestine',
+'Palau',
+'Pakistan',
+'Oman',
+'Norway',
+'Northern Mariana Islands',
+'Norfolk Island',
+'Niue',
+'Nigeria',
+'Niger',
+'Nicaragua',
+'New Zealand',
+'New Caledonia',
+'Netherlands',
+'Netherlands Antilles',
+'Nepal',
+'Nauru',
+'Nationality not specified',
+'Namibia',
+'Myanmar',
+'Mozambique',
+'Morocco',
+'Montserrat',
+'Montenegro',
+'Mongolia',
+'Monaco',
+'Moldova, Republic of',
+'Micronesia (Federated States of)',
+'Mexico',
+'Mayotte',
+'Mauritius',
+'Mauritania',
+'Martinique',
+'Marshall Islands',
+'Malta',
+'Mali',
+'Maldives',
+'Malaysia',
+'Malawi',
+'Madagascar',
+'Macedonia, The Former Yugoslav Republic Of',
+'Macao',
+'Luxembourg',
+'Lithuania',
+'Liechtenstein',
+'Libya',
+'Liberia',
+'Lesotho',
+'Lebanon',
+'Latvia',
+'Laos',
+'Kyrgyzstan',
+'Kuwait',
+'Kosovo',
+'Korea, South',
+'Korea, North',
+'Kiribati',
+'Kenya',
+'Kazakhstan',
+'Jordan',
+'Jersey',
+'Japan',
+'Jamaica',
+'Ivory Coast',
+'Italy',
+'Israel',
+'Isle of Man',
+'Ireland',
+'Iraq',
+'Iran',
+'Indonesia',
+'India',
+'Iceland',
+'Hungary',
+'Hong Kong Special Administrative Region of China',
+'Honduras',
+'Holy See (Vatican City State)',
+'Haiti',
+'Guyana',
+'Guinea',
+'Guinea-Bissau',
+'Guernsey',
+'Guatemala',
+'Guam',
+'Guadeloupe',
+'Grenada',
+'Greenland',
+'Greece',
+'Gibraltar',
+'Ghana',
+'Germany',
+'Georgia',
+'Gambia',
+'Gabon',
+'French Southern Territories',
+'French Polynesia',
+'French Guiana',
+'France',
+'Finland',
+'Fiji',
+'Faroe Islands',
+'Falkland Islands',
+'Ethiopia',
+'Estonia',
+'Eritrea',
+'Equatorial Guinea',
+'El Salvador',
+'Egypt',
+'Ecuador',
+'Dominican Republic',
+'Dominica',
+'Djibouti',
+'Denmark',
+'Czech Republic',
+'Cyprus',
+'Curacao',
+'Cuba',
+'Croatia',
+'Costa Rica',
+'Cook Islands',
+'Congo',
+'Congo, Democratic Republic of the',
+'Comoros',
+'Colombia',
+'Cocos (Keeling) Islands',
+'Christmas Island',
+'China',
+'Chile',
+'Chad',
+'Central African Republic',
+'Cayman Islands',
+'Cape Verde',
+'Canada',
+'Cameroon',
+'Cambodia',
+'Burundi',
+'Burkina Faso',
+'Bulgaria',
+'Brunei Darussalam',
+'British Subject',
+'British Protected Person',
+'British Overseas Territory Citizen',
+'British Overseas Citizen',
+'British National (Overseas)',
+'Brazil',
+'Botswana',
+'Bosnia and Herzegovina',
+'Bonaire, Sint Eustatius and Saba',
+'Bolivia',
+'Bhutan',
+'Bermuda',
+'Benin',
+'Belize',
+'Belgium',
+'Belarus',
+'Barbados',
+'Bangladesh',
+'Bahrain',
+'Bahamas',
+'Azerbaijan',
+'Austria',
+'Australia',
+'Aruba',
+'Armenia',
+'Argentina',
+'Antigua and Barbuda',
+'Anguilla',
+'Angola',
+'Andorra',
+'American Samoa',
+'Algeria',
+'Albania',
+'Aland Islands',
+'Afghanistan'
+    ]
+    syncResults(query ?
+      results.filter(function (result) {
+        return result.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      }) :
+      []
+    )
+  }
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#issue')
+  id = 'autocomplete-minLength'
+  name = 'keyCtcNat'
+  accessibleAutocomplete({
+    element: element,
+    id: id,
+    name: name,
+    minLength: 2,
+    source: suggest
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#tt-autoselect')
+  id = 'autocomplete-autoselect'
+  accessibleAutocomplete({
+    autoselect: true,
+    element: element,
+    id: id,
+    source: suggest
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#tt-overlay')
+  id = 'autocomplete-overlay'
+  accessibleAutocomplete({
+    displayMenu: 'overlay',
+    element: element,
+    id: id,
+    source: suggest
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#tt-defaultValue')
+  id = 'autocomplete-defaultValue'
+  accessibleAutocomplete({
+    defaultValue: 'Germany',
+    element: element,
+    id: id,
+    source: suggest
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#autocomplete-progressiveEnhancement')
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: element
+  })
+</script>
+<script type="text/javascript">
+  function customSuggest(query, syncResults) {
+    var results = [{
+        endonymLang: '',
+        endonym: '',
+        name: 'Zimbabwe'
+      },
+      {
+        endonymLang: '',
+        endonym: '',
+        name: 'ZZZ'
+      }
+    ]
+    syncResults(query ?
+      results.filter(function (result) {
+        var resultContains = result.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        var endonymContains = result.endonym.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        return resultContains || endonymContains
+      }) :
+      []
+    )
+  }
+  function inputValueTemplate(result) {
+    return result && result.name
+  }
+  function suggestionTemplate(result) {
+    return result && '<strong>' + result.name + '</strong>' +
+      ' (<span lang=' + result.endonymLang + '>' + result.endonym + '</span>)'
+  }
+  element = document.querySelector('#tt-customTemplates')
+  id = 'autocomplete-customTemplates'
+  accessibleAutocomplete({
+    element: element,
+    id: id,
+    minLength: 2,
+    source: customSuggest,
+    templates: {
+      inputValue: inputValueTemplate,
+      suggestion: suggestionTemplate
+    }
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#tt-confirmOnBlur')
+  id = 'autocomplete-confirmOnBlur'
+  accessibleAutocomplete({
+    element: element,
+    id: id,
+    confirmOnBlur: false,
+    source: suggest
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#tt-placeholder')
+  id = 'autocomplete-placeholder'
+  accessibleAutocomplete({
+    element: element,
+    id: id,
+    placeholder: 'Search for a country',
+    source: suggest
+  })
+</script>
+<script type="text/javascript">
+  element = document.querySelector('#tt-showNoOptionsFound')
+  id = 'autocomplete-showNoOptionsFound'
+  accessibleAutocomplete({
+    element: element,
+    id: id,
+    showNoOptionsFound: true,
+    source: suggest
+  })
+</script>
+{% endblock %}

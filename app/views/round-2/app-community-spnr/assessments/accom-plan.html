@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Service name required
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="accom-details" method="post">
+
+
+<h1 class="govuk-heading-l">Accommodation plans</h1>
+
+<p>Tell us about the community group's plan to arrange accommodation for the refugee or family.</p>
+
+<p>You can include:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the type of accommodation the community group plans to provide</li>
+  <li>available housing options they have identified</li>
+  <li>how they will pay for the accommodation</li>
+  <li>what they will do if their preferred accommodation is not available</li>
+</ul>
+
+{{ govukCharacterCount({
+  id: "label-as-page-heading",
+  name: "labelAsPageHeading",
+  label: {
+    text: "How does the commmunity group plan to arrange accommodation for the refugee or family?",
+    classes: "govuk-label--m"
+  }
+}) }}
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

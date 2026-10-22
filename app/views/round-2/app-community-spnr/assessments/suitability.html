@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Add service name
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="funds-avail" method="post">
+
+
+<h1 class="govuk-heading-l">Community group suitability</h1>
+
+<p>Tell us how you assessed whether the community group is suitable to support refugees.</p>
+
+<p>You can include:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>any safeguarding and suitability checks you carried out on group members</li>
+  <li>any DBS checks or equivalent checks used in Scotland or Northern Ireland</li>
+  <li>any safeguarding measures in place, including training completed by group members</li>
+  <li>how you will supervise volunteers when they support refugees</li>
+</ul>
+
+{{ govukCharacterCount({
+  id: "label-as-page-heading",
+  name: "labelAsPageHeading",
+
+  label: {
+    text: "How have you assessed whether the community group is suitable to support refugees?",
+    classes: "govuk-label--m"
+  }
+}) }}
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

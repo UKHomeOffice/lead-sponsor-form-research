@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Apply to be a lead sponsor
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+
+<h1 class="govuk-heading-l">Group member details</h1>
+
+<p>You must provide information about 5 members in your community group.</p>
+
+<p>You will need to add each member, one at a time.</p>
+
+<p>After entering a member's name, you'll need to provide some more information about them.</p>
+
+<p>You will need their:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>nationality</li>
+  <li>date of birth</li>
+</ul>
+
+{{ govukInput({
+  label: {
+    text: "What is the group member's full name? (5 of 5)",
+    classes: "govuk-label--m"
+  },
+  hint: {
+    text: "Enter their full name as shown on their passport or other identity document"
+  },
+  id: "key-ctc-name",
+  name: "keyCtcName"
+}) }}
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

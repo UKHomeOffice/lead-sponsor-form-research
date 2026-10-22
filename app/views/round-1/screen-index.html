@@ -10,14 +10,21 @@ Safe and legal research history
 Safe and legal research history
 {% endset %}
 
-<h1 class="govuk-heading-l">
-      {{ serviceName }}
-    </h1>
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+   Lead sponsor application form
+    </h1>
 
   <p>The screens below were designed using <a href="https://www.forms.service.gov.uk/">GOV.UK forms</a> which comes with the following constraints:</p>
 
@@ -35,8 +42,6 @@ Safe and legal research history
 
 <p>An <a href="https://app.mural.co/t/mbtpasylum2140/m/mbtpasylum2140/1780417270639/6c9ca845a5b8e0044fb9e15eb87521dc706557e0?wid=0-1784147707648"> end to end flow</a> giving an 
   overview of the entire form is on a mural board. If the link has expired send an email to ucdops@homeoffice.gov.uk to request access.</p>
-
-  <h2 class="govuk-heading-m">Lead sponsor application form</h2>
 
  <p>Organisations must use this form to apply to be a Lead Sponsor.</p>
 

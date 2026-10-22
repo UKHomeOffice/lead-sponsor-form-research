@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Add service name
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="accom-avail" method="post">
+
+
+<h1 class="govuk-heading-l">Funding plan</h1>
+
+<p>Tell us how the coummunity group plans to fund support for the refugee or family.</p>
+
+<p>You can include:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the expected costs of supporting the refugee or family</li>
+  <li>any money already available</li>
+  <li>how the community group plans to get any additional money needed</li>
+  <li>when the money is expected to be available</li>
+</ul>
+
+{{ govukCharacterCount({
+  id: "funding-planlabel-as-page-heading",
+  name: "fundingPlan",
+  label: {
+    text: "How does the community group plan to meet the costs of supporting the refugee or family?",
+    classes: "govuk-label--m"
+  }
+}) }}
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

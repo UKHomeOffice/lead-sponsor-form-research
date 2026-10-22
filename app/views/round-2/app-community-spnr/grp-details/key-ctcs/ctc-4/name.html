@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Apply to be a lead sponsor
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="dob" method="post">
+
+
+{{ govukInput({
+  label: {
+    text: "What is the group member's full name? (4 of 5)",
+    classes: "govuk-label--l"
+  },
+  hint: {
+    text: "Enter their full name as shown on their passport or other identity document"
+  },
+  id: "key-ctc-name",
+  name: "keyCtcName"
+}) }}
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

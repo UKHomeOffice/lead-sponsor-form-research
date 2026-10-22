@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Add service name
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="phone" method="post">
+
+
+<h1 class="govuk-heading-l">Emergency contact details</h1>
+
+<p>You must provide contact details for 2 members of your group. These must be 2 of the 5 members whose details you have already provided.</p>
+
+<p>We may need to contact them if there is an emergency when a refugee arrives in the UK.
+
+{{ govukInput({
+  label: {
+    text: "Who is your first emergency contact?",
+    classes: "govuk-label--m"
+  },
+  id: "emerg-ctc-1",
+  name: "emergCtc1"
+}) }}
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

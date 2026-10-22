@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Service name required
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/round-2/app-community-spnr/refugee/type" method="post">
+
+
+<h1 class="govuk-heading-l">Concerns</h1>
+
+<p>To help us understand any risks and how they will be managed, tell us about:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the concerns you have identified</li>
+  <li>how these could affect the refugee or family</li>
+  <li>any steps the community group will take to address them</li>
+  <li>any additional support that may be needed</li>
+</ul>
+
+{{ govukCharacterCount({
+  id: "label-as-page-heading",
+  name: "labelAsPageHeading",
+  label: {
+    text: "What concerns have you identifieed and how will they be managed?",
+    classes: "govuk-label--m"
+  }
+}) }}
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Add service name
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/round-2/app-community-spnr/assessments/suitability" method="post">
+
+
+
+{{ govukInput({
+  label: {
+    text: "What is your second emergency contact's mobile phone number?",
+    classes: "govuk-label--l"
+  },
+  hint: {
+    text: "Enter a UK mobile phone number"
+  },
+  id: "emerg-ctc-1",
+  name: "emergCtc1"
+}) }}
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
