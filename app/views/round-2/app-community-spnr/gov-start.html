@@ -1,0 +1,109 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+ 
+{% endblock %}
+
+{% set serviceName %}
+Add service name
+{% endset %}
+
+{% block header %}
+  <header>
+    {{govukHeader()}}
+  </header>
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+       Tell us about a community group that wants to sponsor a refugee
+      </h1>
+
+      <p>Use this service to tell us about a communituy group that wants to sponsor a refugee.</p>
+
+        <h2 class="govuk-heading-m">Who can use this service</h2>
+
+        <p>You can only use this service if you are an accredited lead sponsor.</p>
+
+          <h2 class="govuk-heading-m">Before you start</h2>
+
+          <p>You will need:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your lead sponsor accreditation number</li>
+        <li>the name of the community group you want to tell us about</li>
+        <li>information about 5 group members who will be most involved in supporting the refugee or family (name, date of birth and nationality, how you checked this information was correct</li>
+        <li>mobile phone numbers for 2 of the 5 group members</li>
+        <li>information about the community group's suitability to support the refugee or family</li>
+        <li>information about the funding arrangements</li>
+        <li>information about the proposed accommodation arrangements</li>
+        <li>details of any risks or concerns and how they will be managed</li>
+        <li>names of the refugee or family</li>
+      </ul>
+
+      <p>You will not be able to save this form.</p>
+
+     
+      {{ govukButton({
+        text: "Start now",
+        href: "org/eligibile",
+        isStartButton: true
+      }) }}
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}
