@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% set serviceName %}
-Add service name
+Research prototype
 {% endset %}
 
 {% block content %}
@@ -24,6 +24,7 @@ Add service name
 
 {{ govukRadios({
   name: "route",
+  id: "route",
   fieldset: {
     legend: {
       text: "What type of organisation do you want to tell us about?",
@@ -32,11 +33,11 @@ Add service name
   },
   items: [
     {
-      value: "community~grp-name",
+      value: "Community~grp-name",
       text: "Community group"
     },
     {
-      value: "uni~",
+      value: "University~to-be-designed",
       text: "University"
     }
   ]

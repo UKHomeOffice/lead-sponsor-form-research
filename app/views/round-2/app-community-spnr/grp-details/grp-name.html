@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+Community group name
 {% endblock %}
 
 {% block containerStart %}
@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% set serviceName %}
-Add service name
+Research prototype
 {% endset %}
 
 
@@ -27,9 +27,12 @@ Add service name
   label: {
     text: "What is the name of the community group?",
     classes: "govuk-label--l",
-    id: "grp-name",
-  name: "grpName"
-  }
+    isPageHeading: true
+  },
+    id: "grpName",
+  name: "grp-name",
+  value: data['grp-name']
+  
   
 }) }}
 
