@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% set serviceName %}
-Add service name
+Research prototype
 {% endset %}
 
 {% block content %}
@@ -25,7 +25,7 @@ Add service name
 
 
 {{ govukRadios({
-  name: "accomm-avail",
+  name: "accommAvail",
   id: "accommAvail",
   fieldset: {
     legend: {
@@ -35,11 +35,11 @@ Add service name
   },
   items: [
     {
-      value: "accomm~accom-address",
+      value: "Yes, accommodation has been arranged~accom-address",
       text: "Yes, accommodation has been arranged"
     },
     {
-      value: "accomm-no~accom-plan",
+      value: "No, accommodation has not been arranged yet~accom-plan",
       text: "No, accommodation has not been arranged yet"
     }
   ]

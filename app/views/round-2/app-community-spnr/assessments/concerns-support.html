@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% set serviceName %}
-Add service name
+Research prototype
 {% endset %}
 
 {% block content %}
@@ -25,7 +25,7 @@ Add service name
 
 
 {{ govukRadios({
-  name: "route",
+  name: "concerns",
   fieldset: {
     legend: {
       text: "Do you have any concerns about the community group's ability to support the refugee or family?",
@@ -34,11 +34,11 @@ Add service name
   },
   items: [
     {
-      value: "yes~concerns",
+      value: "Yes~concerns",
       text: "Yes"
     },
     {
-      value: "no~/round-2/app-community-spnr/refugee/type",
+      value: "No~/round-2/app-community-spnr/refugee/type",
       text: "No"
     }
   ]

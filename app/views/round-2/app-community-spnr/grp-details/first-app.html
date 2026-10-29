@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% set serviceName %}
-Add service name
+Research prototype
 {% endset %}
 
 {% block content %}
@@ -25,6 +25,7 @@ Add service name
 {{ govukRadios({
   name: "first-app",
   id: "firstApp",
+  value: data['firstApp'],
   fieldset: {
     legend: {
       text: "Is this their first refugee sponsorship application?",
@@ -33,11 +34,11 @@ Add service name
   },
   items: [
     {
-      value: "yes~key-ctcs/ctc-1/name",
+      value: "Yes~key-ctcs/ctc-1/name",
       text: "Yes"
     },
     {
-      value: "no~grp-ref-nbr",
+      value: "No~grp-ref-nbr",
       text: "No"
     }
   ]

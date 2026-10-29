@@ -8,11 +8,12 @@
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
+   
   }) }}
 {% endblock %}
 
 {% set serviceName %}
-Add service name
+Research prototype
 {% endset %}
 
 {% block content %}
@@ -22,17 +23,20 @@ Add service name
 
       <form class="form" action="dob" method="post">
 
-
 {{ govukInput({
   label: {
     text: "What is the group member's full name? (3 of 5)",
-    classes: "govuk-label--l"
+    classes: "govuk-label--l",
+    isPageHeading: true
+  
   },
   hint: {
     text: "Enter their full name as shown on their passport or other identity document"
   },
-  id: "key-ctc-name",
-  name: "keyCtcName"
+   id: "ctc-3-name",
+    name: "ctc3Name",
+    value: data['ctc3Name']
+ 
 }) }}
 
 {{ govukButton({

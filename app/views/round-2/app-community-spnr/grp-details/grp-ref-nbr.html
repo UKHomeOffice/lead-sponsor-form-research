@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% set serviceName %}
-Add service name
+Research prototype
 {% endset %}
 
 
@@ -26,10 +26,11 @@ Add service name
 {{ govukInput({
   label: {
     text: "What is their group reference number?",
-    classes: "govuk-label--l",
-    id: "grp-ref",
-    name: "grpRef"
-  }
+    classes: "govuk-label--l"  
+  },
+  id: "grp-ref",
+  name: "grpRef",
+  value: data['grpRef']
   
 }) }}
 

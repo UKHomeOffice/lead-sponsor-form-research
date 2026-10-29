@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% set serviceName %}
-Add service name
+Research prototype
 {% endset %}
 
 
@@ -29,9 +29,11 @@ Add service name
   label: {
     text: "What is the name of your organisation?",
     classes: "govuk-label--l",
-    id: "org-name",
-    name: "orgName"
-  }
+    isPageHeading: true
+  },
+   id: "org-name",
+    name: "orgName",
+    value: data['orgName']
 }) }}
 
 {{ govukButton({

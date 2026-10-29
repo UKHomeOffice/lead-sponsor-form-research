@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% set serviceName %}
-Add service name
+Research prototype
 {% endset %}
 
 {% block content %}
@@ -25,8 +25,9 @@ Add service name
 
 {% set otherHtml %}
 {{ govukInput({
-  id: "other-chk",
-  name: "otherChk",
+  id: "otherChk1",
+  name: "otherChk2",
+  value: data['otherChk2'],
   classes: "govuk-!-width-two-third",
   label: {
     text: "What did you use instead?"
@@ -35,7 +36,7 @@ Add service name
 {% endset -%}
 
 {{ govukRadios({
-  name: "whatChecks",
+  name: "whatChecks2",
   fieldset: {
     legend: {
       text: "What did you use to check this group member's date of birth and nationality? (2 of 5)",
@@ -45,24 +46,23 @@ Add service name
   },
   items: [
     {
-      value: "passport",
+      value: "Passport",
       text: "Passport"
     },
     {
-      value: "licence",
+      value: "UK photocard driving licence, full or provisional",
       text: "UK photocard driving licence, full or provisional"
     },
     {
-      value: "sharecode",
+      value: "Share code",
       text: "Share code"
     },
     {
       divider: "or"
     },
     {
-      value: "none",
+      value: "None",
       text: "None of the above",
-      classes: "govuk-!-width-two-thirds",
       id: "none",
       name: "none",
       conditional: {
