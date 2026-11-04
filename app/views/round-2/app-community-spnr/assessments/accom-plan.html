@@ -27,7 +27,7 @@ Research prototype
 
 <p>Tell us about the community group's plan to arrange accommodation for the refugee or family.</p>
 
-<p>You can include:</p>
+<p>You should include:</p>
 
 <ul class="govuk-list govuk-list--bullet">
   <li>the type of accommodation the community group plans to provide</li>
@@ -39,9 +39,10 @@ Research prototype
 {{ govukCharacterCount({
   id: "accom-plan",
   name: "accomPlan",
+  value: data['accomPlan'],
   label: {
-    text: "How does the community group plan to arrange accommodation for the refugee or family?",
-    classes: "govuk-label--m"
+    text: "How does the community group plan to arrange appropriate accommodation for the refugee or family?",
+    classes: "govuk-label--s"
   }
 }) }}
 

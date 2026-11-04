@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set serviceName %}
+Research prototype
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="funds-avail" method="post">
+
+
+<h1 class="govuk-heading-l">Suitability and background checks</h1>
+
+<p>Tell us how you assessed whether the community group and its members.</p>
+<p>You should include:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>any background or criminal record checks you carried out on group members</li>
+  <li>any convictions or concerns you identified and how you addressed them</li>
+  <li>any other checks or assessments you carried out </li>
+</ul>
+
+{{ govukCharacterCount({
+  id: "background-chks",
+  name: "backgroundChks",
+  value: data['backgroundChks'],
+  label: {
+    text: "What background or criminal record checks did you carry out on the community group and its members?",
+    classes: "govuk-label--s"
+    
+  }
+}) }}
+
+{{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+
+      <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Get help with this form
+    </span>
+  </summary>
+<div class="govuk-details__text">
+    <h3 class="govuk-heading-s">Email</h3>
+    
+    <p> <a href=mailto:"leadsponsorapplications@homeoffice.gov.uk">leadsponsorapplications@homeoffice.gov.uk</a></p>
+  </div>
+</details>
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+{% endblock %}
