@@ -339,14 +339,15 @@ Research prototype
     )
   }
 </script>
+
 <script type="text/javascript">
-  element = document.querySelector('#issue')
-  id = 'autocomplete-minLength'
-  name = 'keyCtc1Nat'
+  const element = document.querySelector('#issue')
+
   accessibleAutocomplete({
     element: element,
-    id: id,
-    name: name,
+    id: 'autocomplete-minLength',
+    name: 'keyCtc1Nat',
+    defaultValue: {{ data['keyCtc1Nat'] | dump | safe }},
     minLength: 2,
     source: suggest
   })
