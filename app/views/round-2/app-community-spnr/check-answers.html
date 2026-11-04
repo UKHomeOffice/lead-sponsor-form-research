@@ -26,6 +26,7 @@ Research prototype
 {% block content %}
 
 <div class="govuk-width-container">
+  
   <!--<a href="#" class="govuk-back-link">Back</a>-->
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
@@ -90,13 +91,14 @@ Research prototype
               Is this their first refugee sponsorship application?
             </dt>
             <dd class="govuk-summary-list__value">
-             {{ data['first-app'] }}           
+             {{ data['firstApp'] }}           
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/first-app">Change<span class="govuk-visually-hidden"> charity status</span></a>
             </dd>
           </div>
 
+  {% if data['firstApp'] == 'No' %}
             <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               What is their group reference number?
@@ -109,7 +111,7 @@ Research prototype
             </dd>
           </div>
      
-  
+    {% elif data['firstApp'] == 'Yes' %} 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               What is the group member's full name? (1 of 5)
@@ -121,6 +123,8 @@ Research prototype
               <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-1/name">Change<span class="govuk-visually-hidden"> company status</span></a>
             </dd>
           </div>
+    {% endif %}
+
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -313,7 +317,7 @@ Research prototype
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data["whatChecks4"] == "None" %}
-                        {{ data["otherChk4"] }}
+                        {{ data["otherChk5"] }}
                      {% elif data["whatChecks4"] %}
                         {{ data["whatChecks4"] }}
                      {% endif %}
@@ -341,7 +345,7 @@ Research prototype
               What is the group member's date of birth? (5 of 5)
             </dt>
             <dd class="govuk-summary-list__value">
-                 {{ data['ctc4dob-day'] }}/{{ data['ctc4dob-month'] }}/{{ data['ctc4dob-year'] }}
+                 {{ data['ctc5dob-day'] }}/{{ data['ctc5dob-month'] }}/{{ data['ctc5dob-year'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-5/dob">Change<span class="govuk-visually-hidden"> company number</span></a>
@@ -441,9 +445,10 @@ Research prototype
             </dd>
           </div>
 
+ 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Does the community group have funding in place to support the refugee or family?
+              Does the community group have enough funding in place to support the refugee or family?
             </dt>
             <dd class="govuk-summary-list__value"> 
                 {{ data['funds'] }}
@@ -453,7 +458,7 @@ Research prototype
             </dd>
           </div>
 
-      
+{% if data['funds'] == 'Yes, funding is in place' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               What funding is available to support the refugee or family?
@@ -465,7 +470,7 @@ Research prototype
               <a class="govuk-link" href="/round-2/app-community-spnr/assessments/funds-details">Change<span class="govuk-visually-hidden"> board member 1 passport number</span></a>
             </dd>
           </div>
-
+{% elif data['funds'] == 'No, but the community group has a realistic funding plan'%}
         <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               How does the community group plan to meet the cost of supporing the refugee or family?
@@ -476,6 +481,7 @@ Research prototype
               <a class="govuk-link" href="/round-2/app-community-spnr/assessments/funds-plan">Change<span class="govuk-visually-hidden"> board member 1 date of birth</span></a>
             </dd>
           </div>
+{% endif %}
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -488,6 +494,7 @@ Research prototype
             </dd>
           </div>
 
+{% if data['accommAvail'] == 'Yes, accommodation has been arranged'%}
         <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
              What is the address of the accommodation?
@@ -507,8 +514,8 @@ Research prototype
               <a class="govuk-link" href="/round-2/app-community-spnr/assessments/accom-address">Change<span class="govuk-visually-hidden"> address in the UK</span></a>
             </dd>
           </div>
-
-            <div class="govuk-summary-list__row">
+{% elif data['accommAvail'] == 'No, accommodation has not been arranged yet' %}
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               How does the community group plan to arrange accommodation for the refugee or family?
             </dt>
@@ -519,7 +526,9 @@ Research prototype
               <a class="govuk-link" href="/round-2/app-community-spnr/assessments/accom-plan">Change<span class="govuk-visually-hidden"> add board member 2</span></a>
             </dd>
          </div>
+{% endif %}
 
+{% if data['accommAvail'] == 'Yes, accommodation has been arranged'%}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               How have you assessed whether the accommodation is suitable for the refugee or family?
@@ -531,10 +540,11 @@ Research prototype
               <a class="govuk-link" href="/round-2/app-community-spnr/assessments/accom-details">Change<span class="govuk-visually-hidden"> add board member 2</span></a>
             </dd>
          </div>
+{% endif %}
 
         <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              How is the community group well placed to support the refugee or family in that location?
+              What makes the sponsor suitable to provide support to the refugee?
             </dt>
             <dd class="govuk-summary-list__value"> 
                 {{ data['commLink'] }}
@@ -543,6 +553,7 @@ Research prototype
               <a class="govuk-link" href="/round-2/app-community-spnr/assessments/connection-link">Change<span class="govuk-visually-hidden"> board member 2 name</span></a>
             </dd>
           </div>
+
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -556,6 +567,7 @@ Research prototype
             </dd>
           </div>
 
+{% if data['concerns'] == 'Yes'%}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               What concerns have you identified and how will they be managed?
@@ -567,6 +579,8 @@ Research prototype
               <a class="govuk-link" href="/round-2/app-community-spnr/assessments/concerns-support">Change<span class="govuk-visually-hidden"> board member 2 passport</span></a>
             </dd>
           </div>
+
+{% endif %}
      
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -581,6 +595,7 @@ Research prototype
           </div>
 
 
+{% if data['refugeeType'] == 'An individual refugee' %}
         <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               What is the refugee's full name?
@@ -592,6 +607,7 @@ Research prototype
               <a class="govuk-link" href="/round-2/app-community-spnr/refugee/name-indiv">Change<span class="govuk-visually-hidden"> board member 2 date of birth</span></a>
             </dd>
           </div>
+{% endif %}
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">

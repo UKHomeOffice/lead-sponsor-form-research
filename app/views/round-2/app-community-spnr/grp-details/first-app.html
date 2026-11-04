@@ -23,8 +23,8 @@ Research prototype
       <form class="form" action="" method="post">
 
 {{ govukRadios({
-  name: "first-app",
-  id: "firstApp",
+  name: "firstApp",
+  id: "first-app",
   value: data['firstApp'],
   fieldset: {
     legend: {
@@ -35,11 +35,13 @@ Research prototype
   items: [
     {
       value: "Yes~key-ctcs/ctc-1/name",
-      text: "Yes"
+      text: "Yes",
+      checked: checked("firstApp", "Yes")
     },
     {
       value: "No~grp-ref-nbr",
-      text: "No"
+      text: "No",
+      checked: checked("firstApp", "No")
     }
   ]
 }) }}

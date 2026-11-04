@@ -27,7 +27,7 @@ Research prototype
 
 <p>Tell us how you assessed whether the accommodation is suitable for the refugee or family.</p>
 
-<p>You can include:</p>
+<p>You should include:</p>
 
 <ul class="govuk-list govuk-list--bullet">
   <li>any checks you carried out on the accommodation</li>
@@ -42,6 +42,7 @@ Research prototype
 {{ govukCharacterCount({
   id: "accom-details",
   name: "accomDetails",
+  value: data['accomDetails'],
   label: {
     text: "How have you assessed whether the accommodation is suitable for the refugee or family?",
     classes: "govuk-label--m"

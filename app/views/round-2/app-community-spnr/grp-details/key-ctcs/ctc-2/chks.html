@@ -22,13 +22,12 @@ Research prototype
 
       <form class="form" action="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-3/name" method="post">
 
-
 {% set otherHtml %}
 {{ govukInput({
-  id: "otherChk1",
+  id: "otherChk2",
   name: "otherChk2",
   value: data['otherChk2'],
-  classes: "govuk-!-width-two-third",
+  classes: "govuk-!-width-two-thirds",
   label: {
     text: "What did you use instead?"
   }
@@ -47,15 +46,18 @@ Research prototype
   items: [
     {
       value: "Passport",
-      text: "Passport"
+      text: "Passport",
+      checked: checked("whatChecks2", "Passport")
     },
     {
       value: "UK photocard driving licence, full or provisional",
-      text: "UK photocard driving licence, full or provisional"
+      text: "UK photocard driving licence, full or provisional",
+      checked: checked("whatChecks2", "UK photocard driving licence, full or provisional")
     },
     {
       value: "Share code",
-      text: "Share code"
+      text: "Share code",
+      checked: checked("whatChecks2", "Share code")
     },
     {
       divider: "or"
@@ -64,11 +66,11 @@ Research prototype
       value: "None",
       text: "None of the above",
       id: "none",
-      name: "none",
       conditional: {
         html: otherHtml
+      },
+      checked: checked("whatChecks2", "None")
     }
-  }
   ]
 }) }}
 

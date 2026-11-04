@@ -21,14 +21,12 @@ Research prototype
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="/round-2/app-community-spnr/grp-details/key-ctcs/emerg-ctc-1/name" method="post">
-
-
 {% set otherHtml %}
 {{ govukInput({
   id: "otherChk5",
   name: "otherChk5",
   value: data['otherChk5'],
-  classes: "govuk-!-width-two-third",
+  classes: "govuk-!-width-two-thirds",
   label: {
     text: "What did you use instead?"
   }
@@ -37,10 +35,9 @@ Research prototype
 
 {{ govukRadios({
   name: "whatChecks5",
-  value: data,
   fieldset: {
     legend: {
-      text: "What did you use to check this group member's date of birth and nationality? (5 of 5)",
+      text: "What did you use to check this group member's date of birth and nationality? (5of 5)",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -48,15 +45,18 @@ Research prototype
   items: [
     {
       value: "Passport",
-      text: "Passport"
+      text: "Passport",
+      checked: checked("whatChecks5", "Passport")
     },
     {
       value: "UK photocard driving licence, full or provisional",
-      text: "UK photocard driving licence, full or provisional"
+      text: "UK photocard driving licence, full or provisional",
+      checked: checked("whatChecks5", "UK photocard driving licence, full or provisional")
     },
     {
       value: "Share code",
-      text: "Share code"
+      text: "Share code",
+      checked: checked("whatChecks5", "Share code")
     },
     {
       divider: "or"
@@ -65,17 +65,17 @@ Research prototype
       value: "None",
       text: "None of the above",
       id: "none",
-      name: "none",
       conditional: {
         html: otherHtml
+      },
+      checked: checked("whatChecks5", "None")
     }
-  }
   ]
 }) }}
-
         {{ govukButton({
           text: "Continue"
         }) }}
+
 
       </form>
 

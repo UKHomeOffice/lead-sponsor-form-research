@@ -26,6 +26,7 @@ Research prototype
 
 {{ govukRadios({
   name: "funds",
+  id: "funds",
   fieldset: {
     legend: {
       text: "",
@@ -34,12 +35,14 @@ Research prototype
   },
   items: [
     {
-      value: "Yes, I have funding in place~funds-details",
-      text: "Yes, funding is in place"
+      value: "Yes, funding is in place~funds-details",
+      text: "Yes, funding is in place",
+      checked: checked("funds", "Yes, funding is in place")
     },
     {
-      value: "No, but there is a funding plan~funds-plan",
-      text: "No, but there is a funding plan"
+      value: "No, but the community group has a realistic funding plan~funds-plan",
+      text: "No, but the community group has a realistic funding plan",
+      checked: checked("funds", "No, but the community group has a realistic funding plan")
     }
   ]
 }) }}

@@ -23,10 +23,25 @@ Research prototype
 
       <form class="form" action="key-ctcs/ctc-1/name" method="post">
 
-{{ govukInput({
+
+        <h1 class="govuk-heading-l">Previous sponsorship</h1>
+
+        <p>Enter a form reference number from any previous application submitted for this community group</p>
+
+<p>You may have:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>received the form reference number in your confirmation email for a previous 
+    sponsorship application
+  </li>
+  <li>made a note of the form reference number when you submitted the application</li>
+</ul>
+
+<p>For example, P69L47W5.</p>
+        {{ govukInput({
   label: {
-    text: "What is their group reference number?",
-    classes: "govuk-label--l"  
+    text: "Enter a previous form reference number",
+    classes: "govuk-label--m"  
   },
   id: "grp-ref",
   name: "grpRef",

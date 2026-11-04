@@ -23,15 +23,33 @@ Research prototype
 
       <form class="form" action="nationality" method="post">
 
-        
-<h1 class="govuk-heading-l">What is the group member's date of birth? (5 of 5)</h1>
-
 {{ govukDateInput({
   id: "dob",
   namePrefix: "ctc5dob",
-  value: data,
   fieldset: {
-  }
+    legend: {
+      text: "What is the group member's date of birth? (5 of 5)",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      name: "day",
+      classes: "govuk-input--width-2",
+      value: data['ctc5dob-day']
+    },
+    {
+      name: "month",
+      classes: "govuk-input--width-2",
+      value: data['ctc5dob-month']
+    },
+    {
+      name: "year",
+      classes: "govuk-input--width-4",
+      value: data['ctc5dob-year']
+    }
+  ]
 }) }}
 
         {{ govukButton({
