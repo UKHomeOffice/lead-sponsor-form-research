@@ -139,7 +139,8 @@ href: "javascript:window.history.back()"
                 What is the group member's date of birth? (1 of 5)
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['ctc1dob-day'] }}/{{ data['ctc1dob-month'] }}/{{ data['ctc1dob-year'] }}
+                {{ data['ctc1dob-day'] }} {{ months[data['ctc1dob-month'] - 1] }} {{ data['ctc1dob-year'] }}
+               
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-1/dob">Change<span
@@ -199,7 +200,8 @@ href: "javascript:window.history.back()"
                 What is the group member's date of birth? (2 of 5)
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['ctc2dob-day'] }}/{{ data['ctc2dob-month'] }}/{{ data['ctc2dob-year'] }}
+                {{ data['ctc2dob-day'] }} {{ months[data['ctc2dob-month'] - 1] }} {{ data['ctc2dob-year'] }}
+                
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-2/dob">Change<span
@@ -255,7 +257,8 @@ href: "javascript:window.history.back()"
               <dt class="govuk-summary-list__key">
                 What is the group member's date of birth? (3 of 5)
               </dt>
-              {{ data['ctc3dob-day'] }}/{{ data['ctc3dob-month'] }}/{{ data['ctc3dob-year'] }}
+              {{ data['ctc3dob-day'] }} {{ months[data['ctc3dob-month'] - 1] }} {{ data['ctc3dob-year'] }}
+
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-3/dob">Change<span
@@ -314,7 +317,9 @@ href: "javascript:window.history.back()"
                 What is the group member's date of birth? (4 of 5)
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['ctc4dob-day'] }}/{{ data['ctc4dob-month'] }}/{{ data['ctc4dob-year'] }}
+                {{ data['ctc4dob-day'] }} {{ months[data['ctc4dob-month'] - 1] }} {{ data['ctc4dob-year'] }}
+                
+
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-4/dob">Change<span
@@ -373,7 +378,7 @@ href: "javascript:window.history.back()"
                 What is the group member's date of birth? (5 of 5)
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['ctc5dob-day'] }}/{{ data['ctc5dob-month'] }}/{{ data['ctc5dob-year'] }}
+                {{ data['ctc5dob-day'] }} {{ months[data['ctc5dob-month'] - 1] }} {{ data['ctc5dob-year'] }}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-5/dob">Change<span
@@ -680,7 +685,7 @@ href: "javascript:window.history.back()"
                 What is the refugee's date of birth?
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['ref1Dob-day'] }}/{{ data['ref1Dob-month'] }}/{{ data['ref1Dob-year'] }}
+                {{ data['ref1Dob-day'] }} {{ months[data['ref1Dob-month'] - 1] }} {{ data['ref1Dob-year'] }}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="/round-2/app-community-spnr/refugee/indiv-dob">Change<span
