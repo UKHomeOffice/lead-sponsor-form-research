@@ -22,8 +22,6 @@ Research prototype
 
       <form class="form" action="" method="post">
 
-
-
 {{ govukRadios({
   name: "refugeeType",
   fieldset: {
@@ -34,12 +32,12 @@ Research prototype
   },
   items: [
     {
-      value: "An individual refugee~name-indiv",
-      text: "An individual refugee",
-      checked: checked("refugeeType", "An individual refugee")
+      value: "An individual~indiv-name",
+      text: "An individual",
+      checked: checked("refugeeType", "An individual")
     },
     {
-      value: "A family",
+      value: "A family~family-name1",
       text: "A family",
       checked: checked("refugeeType", "A family")
     }

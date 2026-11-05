@@ -1,0 +1,172 @@
+<div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <span class="govuk-caption-m">Family details</span>
+                What is the family member's full name?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyName1'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">Change<span
+                    class="govuk-visually-hidden"> </span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the family member's date of birth?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyDob1-day'] }}/{{ data['familyDob1-month'] }}/{{ data['familyDob1-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Do you want to add another family member to this application?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addAnother1'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+{% if data['addAnother1'] == 'Yes' %}
+
+            <!--family member 2 details-->
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the family member's full name?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyName2'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">Change<span
+                    class="govuk-visually-hidden"> board member 2 date of birth</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the family member's date of birth?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyDob2-day'] }}/{{ data['familyDob2-month'] }}/{{ data['familyDob2-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Do you want to add another person to this application?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addAnother2'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+            {% endif %}
+
+<!--family member 3 details-->
+
+{% if data['addAnother1'] == 'Yes' and data['addAnother2'] == 'Yes' %}
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the family member's full name?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyName3'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">Change<span
+                    class="govuk-visually-hidden"> board member 2 date of birth</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the family member's date of birth?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyDob3-day'] }}/{{ data['familyDob3-month'] }}/{{ data['familyDob3-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Do you want to add another person to this application?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addAnother3'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+{% endif %}
+            <!--family member 4 details-->
+  
+{% if data['addAnother1'] == 'Yes' and data['addAnother2'] == 'Yes' and data['addAnother3'] == 'Yes' %}
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the family member's full name?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyName4'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">Change<span
+                    class="govuk-visually-hidden"> board member 2 date of birth</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the family member's date of birth?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyDob4-day'] }}/{{ data['familyDob4-month'] }}/{{ data['familyDob4-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Do you want to add another person to this application?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addAnother4'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+{% endif %}

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% set serviceName %}
@@ -9,720 +9,990 @@ Research prototype
 {% endset %}
 
 {% block containerStart %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
 {% endblock %}
 
 
 
 {% set months = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
+"January", "February", "March", "April", "May", "June",
+"July", "August", "September", "October", "November", "December"
 ] %}
 
 
 {% block content %}
 
 <div class="govuk-width-container">
-  
+
   <!--<a href="#" class="govuk-back-link">Back</a>-->
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds-from-desktop">
-         <form class="form" action="confirmation" method="post">
-        <h1 class="govuk-heading-l">Check your answers before submitting your form</h1>
+        <form class="form" action="confirmation" method="post">
+          <h1 class="govuk-heading-l">Check your answers before submitting your form</h1>
 
-        <h1 class="govuk-heading-l">Check your answers</h1>
+          <h1 class="govuk-heading-l">Check your answers</h1>
 
-<!--organisation-->  
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the name of your organisation?
-            </dt>
-            <dd class="govuk-summary-list__value">
-               {{ data['orgName'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/lead-spnr-details/org-name">Change<span class="govuk-visually-hidden">organisation name</span></a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is your accreditation number?
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['accrediation'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/lead-spnr-details/accred-nbr">Change<span class="govuk-visually-hidden"> accrediation number</span></a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What type of organisation do you want to tell us about?
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['route'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/route">Change<span class="govuk-visually-hidden"> organisation</span></a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the name of the community group?
-            </dt>
-            <dd class="govuk-summary-list__value">
-             {{ data['grp-name'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/grp-name">Change<span class="govuk-visually-hidden"> charity status</span></a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Is this their first refugee sponsorship application?
-            </dt>
-            <dd class="govuk-summary-list__value">
-             {{ data['firstApp'] }}           
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/first-app">Change<span class="govuk-visually-hidden"> charity status</span></a>
-            </dd>
-          </div>
-
-  {% if data['firstApp'] == 'No' %}
+          <!--organisation-->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is their group reference number?
-            </dt>
-            <dd class="govuk-summary-list__value">
-             {{ data['grpRef'] }}           
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/grp-ref-nbr">Change<span class="govuk-visually-hidden"> charity status</span></a>
-            </dd>
-          </div>
-     
-    {% elif data['firstApp'] == 'Yes' %} 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the group member's full name? (1 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['ctc1Name'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-1/name">Change<span class="govuk-visually-hidden"> company status</span></a>
-            </dd>
-          </div>
-    {% endif %}
+              <dt class="govuk-summary-list__key">
+                What is the name of your organisation?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['orgName'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/lead-spnr-details/org-name">Change<span
+                    class="govuk-visually-hidden">organisation name</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is your accreditation number?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['accrediation'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/lead-spnr-details/accred-nbr">Change<span
+                    class="govuk-visually-hidden"> accrediation number</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What type of organisation do you want to tell us about?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['route'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/route">Change<span
+                    class="govuk-visually-hidden"> organisation</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the name of the community group?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['grp-name'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/grp-name">Change<span
+                    class="govuk-visually-hidden"> charity status</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Is this their first refugee sponsorship application with you as their lead sponsor?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['firstApp'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/first-app">Change<span
+                    class="govuk-visually-hidden"> charity status</span></a>
+              </dd>
+            </div>
+
+            {% if data['firstApp'] == 'No' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is their group reference number?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['grpRef'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/grp-ref-nbr">Change<span
+                    class="govuk-visually-hidden"> charity status</span></a>
+              </dd>
+            </div>
+
+            {% elif data['firstApp'] == 'Yes' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <span class="govuk-caption-m">Community group members</span>
+                What is the group member's full name? (1 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['ctc1Name'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-1/name">Change<span
+                    class="govuk-visually-hidden"> company status</span></a>
+              </dd>
+            </div>
+            {% endif %}
 
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the group member's date of birth? (1 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
-            {{ data['ctc1dob-day'] }}/{{ data['ctc1dob-month'] }}/{{ data['ctc1dob-year'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-1/dob">Change<span class="govuk-visually-hidden"> company number</span></a>
-            </dd>
-          </div>
-  
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-             What is the group member's nationality? (1 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
-                 {{ data['keyCtc1Nat'] }}          
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-1/nationality">Change<span class="govuk-visually-hidden"> address in the UK</span></a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What did you use to check this group member's date of birth and nationality?
-            </dt>
-            <dd class="govuk-summary-list__value">
-                
-                     {% if data["whatChecks1"] == "None" %}
-                        {{ data["otherChk1"] }}
-                     {% elif data["whatChecks1"] %}
-                        {{ data["whatChecks1"] }}
-                     {% endif %}              
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-1/chks">Change<span class="govuk-visually-hidden"> website</span></a>
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's date of birth? (1 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['ctc1dob-day'] }}/{{ data['ctc1dob-month'] }}/{{ data['ctc1dob-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-1/dob">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
 
 
-           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the group member's full name? (2 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['ctc2Name'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-2/name">Change<span class="govuk-visually-hidden"> company status</span></a>
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's nationality? (1 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['keyCtc1Nat'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link"
+                  href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-1/nationality">Change<span
+                    class="govuk-visually-hidden"> address in the UK</span></a>
+              </dd>
+            </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the group member's date of birth? (2 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What did you use to check this group member's date of birth and nationality?
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                {% if data["whatChecks1"] == "None" %}
+                {{ data["otherChk1"] }}
+                {% elif data["whatChecks1"] %}
+                {{ data["whatChecks1"] }}
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-1/chks">Change<span
+                    class="govuk-visually-hidden"> website</span></a>
+              </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's full name? (2 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['ctc2Name'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-2/name">Change<span
+                    class="govuk-visually-hidden"> company status</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's date of birth? (2 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
                 {{ data['ctc2dob-day'] }}/{{ data['ctc2dob-month'] }}/{{ data['ctc2dob-year'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-2/dob">Change<span class="govuk-visually-hidden"> company number</span></a>
-            </dd>
-          </div>
-  
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-             What is the group member's nationality? (2 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
-                  {{ data['keyCtc2Nat'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-2/nationality">Change<span class="govuk-visually-hidden"> address in the UK</span></a>
-            </dd>
-          </div>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-2/dob">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
 
-              <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What did you use to check this group member's date of birth and nationality?
-            </dt>
-            <dd class="govuk-summary-list__value">
-            {% if data["whatChecks2"] == "None" %}
-                        {{ data["otherChk2"] }}
-                     {% elif data["whatChecks2"] %}
-                        {{ data["whatChecks2"] }}
-                     {% endif %}  
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-2/chks">Change<span class="govuk-visually-hidden"> website</span></a>
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's nationality? (2 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['keyCtc2Nat'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link"
+                  href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-2/nationality">Change<span
+                    class="govuk-visually-hidden"> address in the UK</span></a>
+              </dd>
+            </div>
 
-           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the group member's full name? (3 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['ctc3Name'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-3/name">Change<span class="govuk-visually-hidden"> company status</span></a>
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What did you use to check this group member's date of birth and nationality?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data["whatChecks2"] == "None" %}
+                {{ data["otherChk2"] }}
+                {% elif data["whatChecks2"] %}
+                {{ data["whatChecks2"] }}
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-2/chks">Change<span
+                    class="govuk-visually-hidden"> website</span></a>
+              </dd>
+            </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the group member's date of birth? (3 of 5)
-            </dt>
-            {{ data['ctc3dob-day'] }}/{{ data['ctc3dob-month'] }}/{{ data['ctc3dob-year'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-3/dob">Change<span class="govuk-visually-hidden"> company number</span></a>
-            </dd>
-          </div>
-  
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's full name? (3 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['ctc3Name'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-3/name">Change<span
+                    class="govuk-visually-hidden"> company status</span></a>
+              </dd>
+            </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-             What is the group member's nationality? (3 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
-             {{ data['keyCtc3Nat'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-3/nationality">Change<span class="govuk-visually-hidden"> address in the UK</span></a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What did you use to check this group member's date of birth and nationality?
-            </dt>
-            <dd class="govuk-summary-list__value">
-                      {% if data["whatChecks3"] == "None" %}
-                        {{ data["otherChk3"] }}
-                     {% elif data["whatChecks3"] %}
-                        {{ data["whatChecks3"] }}
-                     {% endif %}  
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-3/chks">Change<span class="govuk-visually-hidden"> website</span></a>
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's date of birth? (3 of 5)
+              </dt>
+              {{ data['ctc3dob-day'] }}/{{ data['ctc3dob-month'] }}/{{ data['ctc3dob-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-3/dob">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
 
 
-           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the group member's full name? (4 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['ctc4Name'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-4/name">Change<span class="govuk-visually-hidden"> company status</span></a>
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's nationality? (3 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['keyCtc3Nat'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link"
+                  href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-3/nationality">Change<span
+                    class="govuk-visually-hidden"> address in the UK</span></a>
+              </dd>
+            </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the group member's date of birth? (4 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What did you use to check this group member's date of birth and nationality?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data["whatChecks3"] == "None" %}
+                {{ data["otherChk3"] }}
+                {% elif data["whatChecks3"] %}
+                {{ data["whatChecks3"] }}
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-3/chks">Change<span
+                    class="govuk-visually-hidden"> website</span></a>
+              </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's full name? (4 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['ctc4Name'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-4/name">Change<span
+                    class="govuk-visually-hidden"> company status</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's date of birth? (4 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
                 {{ data['ctc4dob-day'] }}/{{ data['ctc4dob-month'] }}/{{ data['ctc4dob-year'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-4/dob">Change<span class="govuk-visually-hidden"> company number</span></a>
-            </dd>
-          </div>
-  
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-             What is the group member's nationality? (4 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['keyCtc4Nat'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-4/nationality">Change<span class="govuk-visually-hidden"> address in the UK</span></a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What did you use to check this group member's date of birth and nationality?
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {% if data["whatChecks4"] == "None" %}
-                        {{ data["otherChk5"] }}
-                     {% elif data["whatChecks4"] %}
-                        {{ data["whatChecks4"] }}
-                     {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-4/chks">Change<span class="govuk-visually-hidden"> website</span></a>
-            </dd>
-          </div>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-4/dob">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
 
 
-           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the group member's full name? (5 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
-                 {{ data['ctc5Name'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-5/name">Change<span class="govuk-visually-hidden"> company status</span></a>
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's nationality? (4 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['keyCtc4Nat'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link"
+                  href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-4/nationality">Change<span
+                    class="govuk-visually-hidden"> address in the UK</span></a>
+              </dd>
+            </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the group member's date of birth? (5 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
-                 {{ data['ctc5dob-day'] }}/{{ data['ctc5dob-month'] }}/{{ data['ctc5dob-year'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-5/dob">Change<span class="govuk-visually-hidden"> company number</span></a>
-            </dd>
-          </div>
-  
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-             What is the group member's nationality? (5 of 5)
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['keyCtc5Nat'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-5/nationality">Change<span class="govuk-visually-hidden"> address in the UK</span></a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What did you use to check this group member's date of birth and nationality?
-            </dt>
-            <dd class="govuk-summary-list__value">
-        {% if data["whatChecks5"] == "None" %}
-                        {{ data["otherChk5"] }}
-                     {% elif data["whatChecks5"] %}
-                        {{ data["whatChecks5"] }}
-                     {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-5/chks">Change<span class="govuk-visually-hidden"> website</span></a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Who is your first emergency contact?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
-              {{ data["emergCtc1"] }}  
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/emerg-ctc-1/name">Change<span class="govuk-visually-hidden"> consortium</span></a>
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What did you use to check this group member's date of birth and nationality?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data["whatChecks4"] == "None" %}
+                {{ data["otherChk4"] }}
+                {% elif data["whatChecks4"] %}
+                {{ data["whatChecks4"] }}
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-4/chks">Change<span
+                    class="govuk-visually-hidden"> website</span></a>
+              </dd>
+            </div>
 
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is your first emergency contact's mobile phone number?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
-              {{ data['emergPhone1'] }}    
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/emerg-ctc-1/phone">Change<span class="govuk-visually-hidden"> consortium</span></a>
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's full name? (5 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['ctc5Name'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-5/name">Change<span
+                    class="govuk-visually-hidden"> company status</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's date of birth? (5 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['ctc5dob-day'] }}/{{ data['ctc5dob-month'] }}/{{ data['ctc5dob-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-5/dob">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
 
 
-        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Who is your second emergency contact?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
-             {{ data['emergCtc2'] }}  
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/emerg-ctc-2/name">Change<span class="govuk-visually-hidden"> sponsor role</span></a>
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the group member's nationality? (5 of 5)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['keyCtc5Nat'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link"
+                  href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-5/nationality">Change<span
+                    class="govuk-visually-hidden"> address in the UK</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What did you use to check this group member's date of birth and nationality?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data["whatChecks5"] == "None" %}
+                {{ data["otherChk5"] }}
+                {% elif data["whatChecks5"] %}
+                {{ data["whatChecks5"] }}
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/ctc-5/chks">Change<span
+                    class="govuk-visually-hidden"> website</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <span class="govuk-caption-m">Emergency contact details</span>
+                Who is your first emergency contact?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data["emergCtc1"] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link"
+                  href="/round-2/app-community-spnr/grp-details/key-ctcs/emerg-ctc-1/name">Change<span
+                    class="govuk-visually-hidden"> consortium</span></a>
+              </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is your first emergency contact's mobile phone number?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['emergPhone1'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link"
+                  href="/round-2/app-community-spnr/grp-details/key-ctcs/emerg-ctc-1/phone">Change<span
+                    class="govuk-visually-hidden"> consortium</span></a>
+              </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Who is your second emergency contact?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['emergCtc2'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link"
+                  href="/round-2/app-community-spnr/grp-details/key-ctcs/emerg-ctc-2/name">Change<span
+                    class="govuk-visually-hidden"> sponsor role</span></a>
+              </dd>
+            </div>
 
 
 
-         <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is your second emergency contact's mobile phone number?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is your second emergency contact's mobile phone number?
+              </dt>
+              <dd class="govuk-summary-list__value">
                 {{ data['emergPhone2'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/grp-details/key-ctcs/emerg-ctc-2/phone">Change<span class="govuk-visually-hidden"> board member 1 name</span></a>
-            </dd>
-          </div>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link"
+                  href="/round-2/app-community-spnr/grp-details/key-ctcs/emerg-ctc-2/phone">Change<span
+                    class="govuk-visually-hidden"> board member 1 name</span></a>
+              </dd>
+            </div>
 
-           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What background or criminal record checks did you carry out on the community group and its members?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <span class="govuk-caption-m">Suitability and background checks</span>
+                What background or criminal record checks did you carry out on the community group and its members?
+              </dt>
+              <dd class="govuk-summary-list__value">
                 {{ data['backgroundChks'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/assessments/background-chks">Change<span class="govuk-visually-hidden"> board member 1 nationality</span></a>
-            </dd>
-          </div>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/assessments/background-chks">Change<span
+                    class="govuk-visually-hidden"> board member 1 nationality</span></a>
+              </dd>
+            </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              How have you assessed whether the community group is suitable to support refugees?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <span class="govuk-caption-m">Safeguarding checks</span>
+                How have you assessed whether the community group is suitable to support refugees?
+              </dt>
+              <dd class="govuk-summary-list__value">
                 {{ data['suitability'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/assessments/suitability">Change<span class="govuk-visually-hidden"> board member 1 nationality</span></a>
-            </dd>
-          </div>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/assessments/suitability">Change<span
+                    class="govuk-visually-hidden"> board member 1 nationality</span></a>
+              </dd>
+            </div>
 
- 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Does the community group have enough funding in place to support the refugee or family?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Does the community group have enough funding in place to support the refugee or family?
+              </dt>
+              <dd class="govuk-summary-list__value">
                 {{ data['funds'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/assessments/funds-avail">Change<span class="govuk-visually-hidden"> board memeber 1 passport</span></a>
-            </dd>
-          </div>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/assessments/funds-avail">Change<span
+                    class="govuk-visually-hidden"> board memeber 1 passport</span></a>
+              </dd>
+            </div>
 
-{% if data['funds'] == 'Yes, funding is in place' %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What funding is available to support the refugee or family?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
+            {% if data['funds'] == 'Yes, funding is in place' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <span class="govuk-caption-m">Funding details</span>
+                What funding is available to support the refugee or family?
+              </dt>
+              <dd class="govuk-summary-list__value">
                 {{ data['fundingDetails'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/assessments/funds-details">Change<span class="govuk-visually-hidden"> board member 1 passport number</span></a>
-            </dd>
-          </div>
-{% elif data['funds'] == 'No, but the community group has a realistic funding plan'%}
-        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              How does the community group plan to meet the cost of supporing the refugee or family?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
-                {{ data['fundingPlan'] }}            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/assessments/funds-plan">Change<span class="govuk-visually-hidden"> board member 1 date of birth</span></a>
-            </dd>
-          </div>
-{% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/assessments/funds-details">Change<span
+                    class="govuk-visually-hidden"> board member 1 passport number</span></a>
+              </dd>
+            </div>
+            {% elif data['funds'] == 'No, but the community group has a realistic funding plan'%}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                How does the community group plan to meet the cost of supporing the refugee or family?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['fundingPlan'] }} </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/assessments/funds-plan">Change<span
+                    class="govuk-visually-hidden"> board member 1 date of birth</span></a>
+              </dd>
+            </div>
+            {% endif %}
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Has the community group arranged accommodation for the refugee or family?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
-                {{ data['accommAvail'] }}            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/assessments/accom-avail">Change<span class="govuk-visually-hidden"> board member 1 date of birth</span></a>
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Has the community group arranged appropriate accommodation for the refugee or family?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['accommAvail'] }} </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/assessments/accom-avail">Change<span
+                    class="govuk-visually-hidden"> board member 1 date of birth</span></a>
+              </dd>
+            </div>
 
-{% if data['accommAvail'] == 'Yes, accommodation has been arranged'%}
-        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-             What is the address of the accommodation?
-            </dt>
-            <dd class="govuk-summary-list__value">
-                 {{ data["addressLine1"] }}
-                   {% if data["addressLine2"] %}, 
-                     {{ data["addressLine2"] }}
-                   {% endif %},
-                 {{ data["addressTown"] }}
-                  {% if data["addressCounty"] %}, 
-                    {{ data["addressCounty"] }}
-                  {% endif %},
-                {{ data["addressPostcode"] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/assessments/accom-address">Change<span class="govuk-visually-hidden"> address in the UK</span></a>
-            </dd>
-          </div>
-{% elif data['accommAvail'] == 'No, accommodation has not been arranged yet' %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              How does the community group plan to arrange accommodation for the refugee or family?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
+            {% if data['accommAvail'] == 'Yes, accommodation has been arranged'%}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the address of the accommodation?
+              </dt>
+              <dd class="govuk-summary-list__value">
+               {{ data["addressLine1"] | trim }}{% if data["addressLine2"] %}, {{ data["addressLine2"] | trim }}{% endif %},
+               {{ data["addressTown"] | trim }}{% if data["addressCounty"] %}, {{ data["addressCounty"] | trim }}{% endif %},
+               {{ data["addressPostcode"] | trim }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/assessments/accom-address">Change<span
+                    class="govuk-visually-hidden"> address in the UK</span></a>
+              </dd>
+            </div>
+            {% elif data['accommAvail'] == 'No, accommodation has not been arranged yet' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                How does the community group plan to arrange accommodation for the refugee or family?
+              </dt>
+              <dd class="govuk-summary-list__value">github
                 {{ data['accomPlan'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/assessments/accom-plan">Change<span class="govuk-visually-hidden"> add board member 2</span></a>
-            </dd>
-         </div>
-{% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/assessments/accom-plan">Change<span
+                    class="govuk-visually-hidden"> add board member 2</span></a>
+              </dd>
+            </div>
+            {% endif %}
 
-{% if data['accommAvail'] == 'Yes, accommodation has been arranged'%}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              How have you assessed whether the accommodation is suitable for the refugee or family?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
+            {% if data['accommAvail'] == 'Yes, accommodation has been arranged'%}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <span class="govuk-caption-m">Accommodation suitability</span>
+                How have you assessed whether the accommodation is suitable for the refugee or family?
+              </dt>
+              <dd class="govuk-summary-list__value">
                 {{ data['accomDetails'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/assessments/accom-details">Change<span class="govuk-visually-hidden"> add board member 2</span></a>
-            </dd>
-         </div>
-{% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/assessments/accom-details">Change<span
+                    class="govuk-visually-hidden"> add board member 2</span></a>
+              </dd>
+            </div>
+            {% endif %}
 
-        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What makes the sponsor suitable to provide support to the refugee?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What makes the sponsor suitable to provide support to the refugee?
+              </dt>
+              <dd class="govuk-summary-list__value">
                 {{ data['commLink'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/assessments/connection-link">Change<span class="govuk-visually-hidden"> board member 2 name</span></a>
-            </dd>
-          </div>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/assessments/connection-link">Change<span
+                    class="govuk-visually-hidden"> board member 2 name</span></a>
+              </dd>
+            </div>
 
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Do you have any concerns about the community group's ability to support the refugee or family?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
-               {{ data['concerns'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/assessments/concerns">Change<span class="govuk-visually-hidden"> board member nationality</span></a>
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Do you have any concerns about the community group's ability to support the refugee or family?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['concerns'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/assessments/concerns-support">Change<span
+                    class="govuk-visually-hidden"> board member nationality</span></a>
+              </dd>
+            </div>
 
 {% if data['concerns'] == 'Yes'%}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What concerns have you identified and how will they be managed?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <span class="govuk-caption-m">Concerns</span>
+                What concerns have you identified and how will they be managed?
+              </dt>
+              <dd class="govuk-summary-list__value">
                 {{ data['concernsID'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/assessments/concerns-support">Change<span class="govuk-visually-hidden"> board member 2 passport</span></a>
-            </dd>
-          </div>
-
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/assessments/concerns-support">Change<span
+                    class="govuk-visually-hidden"> board member 2 passport</span></a>
+              </dd>
+            </div>
 {% endif %}
-     
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Is this application for an individual refugee or a family?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Is this application for an individual refugee or a family?
+              </dt>
+              <dd class="govuk-summary-list__value">
                 {{ data['refugeeType'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/refugee/type">Change<span class="govuk-visually-hidden"> board member 2 passport number</span></a>
-            </dd>
-          </div>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/type">Change<span
+                    class="govuk-visually-hidden"> board member 2 passport number</span></a>
+              </dd>
+            </div>
 
+            <!--individual-->
 
-{% if data['refugeeType'] == 'An individual refugee' %}
-        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              What is the refugee's full name?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
-                {{ data['indivName'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/refugee/name-indiv">Change<span class="govuk-visually-hidden"> board member 2 date of birth</span></a>
-            </dd>
-          </div>
+{% if data['refugeeType'] == 'An individual' %}
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the refugee's full name?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['refName1'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/indiv-name">Change<span
+                    class="govuk-visually-hidden"> board member 2 date of birth</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the refugee's date of birth?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['ref1Dob-day'] }}/{{ data['ref1Dob-month'] }}/{{ data['ref1Dob-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/indiv-dob">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+{% elif data['refugeeType'] == 'A family' %}
+
+            <!--family member 1 details-->
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <span class="govuk-caption-m">Family details</span>
+                What is the refugee's full name?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyName1'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/family-name1">Change<span
+                    class="govuk-visually-hidden"> board member 2 date of birth</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the refugee's date of birth?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyDob1-day'] }}/{{ data['familyDob1-month'] }}/{{ data['familyDob1-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/family-dob1">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Do you want to add another person to this application?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addAnother1'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/add-another1">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
 {% endif %}
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              How does the community group know the refugee?
-            </dt>
-            <dd class="govuk-summary-list__value"> 
+{% if data['addAnother1'] == 'Yes' %}
+
+            <!--family member 2 details-->
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the refugee's full name?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyName2'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/family-name2">Change<span
+                    class="govuk-visually-hidden"> board member 2 date of birth</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the refugee's date of birth?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyDob2-day'] }}/{{ data['familyDob2-month'] }}/{{ data['familyDob2-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/family-dob2">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Do you want to add another person to this application?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addAnother2'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/add-another2">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+            {% endif %}
+
+<!--family member 3 details-->
+
+{% if data['addAnother1'] == 'Yes' and data['addAnother2'] == 'Yes' %}
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the refugee's full name?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyName3'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/family-name3">Change<span
+                    class="govuk-visually-hidden"> board member 2 date of birth</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the refugee's date of birth?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyDob3-day'] }}/{{ data['familyDob3-month'] }}/{{ data['familyDob3-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/family-dob3">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Do you want to add another person to this application?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addAnother3'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/add-another3">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+{% endif %}
+            <!--family member 4 details-->
+  
+{% if data['addAnother1'] == 'Yes' and data['addAnother2'] == 'Yes' and data['addAnother3'] == 'Yes' %}
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the refugee's full name?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyName4'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/family-name4">Change<span
+                    class="govuk-visually-hidden"> board member 2 date of birth</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What is the refugee's date of birth?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['familyDob4-day'] }}/{{ data['familyDob4-month'] }}/{{ data['familyDob4-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/family-dob4">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Do you want to add another person to this application?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addAnother4'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/add-another4">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+{% endif %}
+            <!--max number of entries-->
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+
+                <span class="govuk-caption-m">You have added the maximum number of people</span>
+                Do you want to add another person to this application?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['famMax'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/family-max">Change<span
+                    class="govuk-visually-hidden"> company number</span></a>
+              </dd>
+            </div>
+
+
+            <!--know the refugee-->
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                How does the community group know the refugee?
+              </dt>
+              <dd class="govuk-summary-list__value">
                 {{ data['knowRefugee'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/round-2/app-community-spnr/refugee/know-refugee">Change<span class="govuk-visually-hidden"> add board member 3</span></a>
-            </dd>
-         </div>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/round-2/app-community-spnr/refugee/know-refugee">Change<span
+                    class="govuk-visually-hidden"> add board member 3</span></a>
+              </dd>
+            </div>
 
-        </dl>
+          </dl>
 
-      <h2 class="govuk-heading-m">Do you want to get an email confirming your form has been submitted?</h2>
+          <h2 class="govuk-heading-m">Do you want to get an email confirming your form has been submitted?</h2>
 
-      <p class="govuk-body">We'll only use the email address you provide here to send a confirmation that your form's been successfully submitted. It will not contain a copy of your answers.</p>
-
-
-     
-{% set confirmEmailHtml %}
-{{ govukInput({
-  id: "confirm-email",
-  name: "confirmEmail",
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-full",
-  label: {
-    text: "What email address do you want us to send your confirmation to?"
-  }
-}) }}
-{% endset -%}
+          <p class="govuk-body">We'll only use the email address you provide here to send a confirmation that your
+            form's been successfully submitted. It will not contain a copy of your answers.</p>
 
 
-{{ govukRadios({
-  name: "confirm-email",
-  fieldset: {
-    
-  },
-  items: [
-    {
-      value: "Yes",
-      text: "Yes",
-      conditional: {
-        html: confirmEmailHtml
-      }
-    },
-    {
-      value: "No",
-      text: "No"    
-    }
-  ]
-}) }}
+
+          {% set confirmEmailHtml %}
+          {{ govukInput({
+          id: "confirm-email",
+          name: "confirmEmail",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-full",
+          label: {
+          text: "What email address do you want us to send your confirmation to?"
+          }
+          }) }}
+          {% endset -%}
 
 
-<h2 class="govuk-heading-m">Declaration</h2>
+          {{ govukRadios({
+          name: "confirm-email",
+          fieldset: {
 
-<p>Before you submit your application, you must must confirm that:</p>
+          },
+          items: [
+          {
+          value: "Yes",
+          text: "Yes",
+          conditional: {
+          html: confirmEmailHtml
+          }
+          },
+          {
+          value: "No",
+          text: "No"
+          }
+          ]
+          }) }}
 
-    <ul class="govuk-list govuk-list--bullet">
-      <li>the relevant local authority or authorities have been informed of the proposed sponsorship arrangement</li>
-      <li>all required DBS checks, or equivalent checks used in Scotland or Northern Ireland have been completed where required</li>
-      <li>the integration and self-sufficiency plan has been reviewed and covers the support the refugee or family will need</li>
-      <li>the community sponsor group will complete any mandatory training required by the Home Office</li>
-      <li>evidence to show appropriate funding is available and accommodation can be provided if requested</li>
-      <li>you are satisfied that the proposed sponsorship arrangement meets the route requirements</li>
-      <li>the informatiom provided in this application is an accurate assessment of the proposed sponsorship</li>
-      <li>all contact details provided in this application are correct</li>
-    </ul>
-  
 
-  <h2 class="govuk-heading-m">Save a copy of your answers</h2>
-    <p>You will not receive a copy of this form after you submit it. Print this page or save a copy for your records.</p>
+          <h2 class="govuk-heading-m">Declaration</h2>
 
-      <form action="/form-handler" method="post" novalidate>
+          <p>Before you submit your application, you must must confirm that:</p>
 
-        <input type="hidden" name="answers-checked" value="true">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>the relevant local authority or authorities have been informed of the proposed sponsorship arrangement
+            </li>
+            <li>all required DBS checks, or equivalent checks used in Scotland or Northern Ireland have been completed
+              where required</li>
+            <li>the integration and self-sufficiency plan has been reviewed and covers the support the refugee or family
+              will need</li>
+            <li>the community sponsor group will complete any mandatory training required by the Home Office</li>
+            <li>evidence to show appropriate funding is available and accommodation can be provided if requested</li>
+            <li>you are satisfied that the proposed sponsorship arrangement meets the route requirements</li>
+            <li>the informatiom provided in this application is an accurate assessment of the proposed sponsorship</li>
+            <li>all contact details provided in this application are correct</li>
+          </ul>
 
-        {{ govukButton({
-          text: "Agree and submit"
-        }) }}
 
-       </form>
+          <h2 class="govuk-heading-m">Save a copy of your answers</h2>
+          <p>You will not receive a copy of this form after you submit it. Print this page or save a copy for your
+            records.</p>
 
-       <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Get help with this form
-    </span>
-  </summary>
-<div class="govuk-details__text">
-    <h3 class="govuk-heading-s">Email</h3>
-    
-    <p> <a href=mailto:"leadsponsorapplications@homeoffice.gov.uk">leadsponsorapplications@homeoffice.gov.uk</a></p>
-  </div>
-</details>
+          <form action="/form-handler" method="post" novalidate>
+
+            <input type="hidden" name="answers-checked" value="true">
+
+            {{ govukButton({
+            text: "Agree and submit"
+            }) }}
+
+          </form>
+
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Get help with this form
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <h3 class="govuk-heading-s">Email</h3>
+
+              <p> <a
+                  href=mailto:"leadsponsorapplications@homeoffice.gov.uk">leadsponsorapplications@homeoffice.gov.uk</a>
+              </p>
+            </div>
+          </details>
+      </div>
     </div>
-  </div>
-      </main>
-    </div>
-  </div>
-  
+  </main>
+</div>
+</div>
+
 {% endblock %}
-
