@@ -576,7 +576,7 @@ href: "javascript:window.history.back()"
               <dt class="govuk-summary-list__key">
                 How does the community group plan to arrange accommodation for the refugee or family?
               </dt>
-              <dd class="govuk-summary-list__value">github
+              <dd class="govuk-summary-list__value">
                 {{ data['accomPlan'] }}
               </dd>
               <dd class="govuk-summary-list__actions">
@@ -866,7 +866,7 @@ href: "javascript:window.history.back()"
             </div>
 {% endif %}
             <!--max number of entries-->
-
+{% if data['addAnother1'] == 'Yes' and data['addAnother2'] == 'Yes' and data['addAnother3'] == 'Yes' and data['addAnother4'] == 'Yes' %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
 
@@ -881,7 +881,7 @@ href: "javascript:window.history.back()"
                     class="govuk-visually-hidden"> company number</span></a>
               </dd>
             </div>
-
+{% endif %}
 
             <!--know the refugee-->
             <div class="govuk-summary-list__row">
