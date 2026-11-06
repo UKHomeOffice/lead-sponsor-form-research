@@ -22,18 +22,20 @@ Research prototype
 
       <form class="form" action="" method="post">
 
-<h1 class="govuk-heading-l">You have added the maximum number of people</h1>
+<h1 class="govuk-heading-l">You have added the maximum number of family members</h1>
 
-<p>You can add up to 4 people using this form.</p>
+<p>You can add up to 4 family members using this form.</p>
 
-<p>If the community group is sponsoring more than 4 people, we will contact your key contact to collect information about the additional family members.</p>
+<h2 class="govuk-heading-m">Families of more than 4 people</h2>
+
+<p>We will contact your key contact to collect information about the additional family members.</p>
 
 {{ govukRadios({
   classes: "govuk-radios",
   name: "famMax",
   fieldset: {
     legend: {
-      text: "Do you need to add another person to this application?",
+      text: "Do you need to add another family member to this application?",
       classes: "govuk-fieldset__legend--m"
     }
   },
